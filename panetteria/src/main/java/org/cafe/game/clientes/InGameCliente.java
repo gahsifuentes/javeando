@@ -18,7 +18,7 @@ public class InGameCliente {
     private JavaSpriteSheet spriteSheet;
     private JavaSpriteSheet state;
 
-    static float speed = (20f / 1000f); // 10 pixels por segundo
+    static float speed = (20f / 50f); // 10 pixels por segundo
 
     static int POSICAO_CAIXA = 500;
     static int POSICAO_DE_VOLTA = 300;
@@ -70,7 +70,7 @@ public class InGameCliente {
                 Pedido pedido = cliente.escolherPedido(panetteria.getMenu());
 
                 if (pedido == null) {
-                    panetteria.logMessage(cliente.getNome() + " did not find any avaiable product on the menu! ");
+                    panetteria.logMessage(cliente.getNome() + " did not find any available product on the menu! ");
                     state = Assets.instance().getSad();
                 } else {
                     Pagamento pagamento = cliente.escolherTipoDePagamento();

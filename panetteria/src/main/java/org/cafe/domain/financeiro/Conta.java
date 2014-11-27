@@ -3,6 +3,8 @@ package org.cafe.domain.financeiro;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cafe.domain.produto.Produto;
+
 public class Conta {
     private long numero;
     private double saldo;
@@ -20,13 +22,24 @@ public class Conta {
     }
 
     public boolean debitar(double valor) {
-        // TODO
-        return false;
+    	if ((this.saldo - valor) >= 0) {
+    		this.saldo -= valor;
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
 
     public boolean creditar(double valor) {
-        // TODO
-        return false;
+    	   
+        if ((this.limiteDisponivel() - valor) >= 0) {
+        	lancamentosCartao.add(valor);
+        	return true;
+        } else {        
+        	return false;
+        }
+        	
+        
     }
 
     public double getSaldo() {
@@ -34,7 +47,10 @@ public class Conta {
     }
 
     public double limiteDisponivel() {
-        // TODO
-        return 0;
+    	double lancamentos = 0d;
+    	for (int i = 0; i < lancamentosCartao.toArray().length; i++) {
+    		lancamentos += lancamentosCartao.get(i).doubleValue();			
+		} 
+        return this.limiteCartao - lancamentos;
     }
 }

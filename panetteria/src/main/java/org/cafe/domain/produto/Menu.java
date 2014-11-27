@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
+	
     private List<Produto> produtos = new ArrayList<>();
 
     public void add(Produto produto) {
@@ -15,7 +16,13 @@ public class Menu {
     }
 
     public List<Produto> listarProdutosPorTipo(TipoProduto tipoProduto) {
-        // TODO
-        return produtos;
+        
+    	List<Produto> produtosPorTipo = new ArrayList<>();
+    	for(int i = 0; i < produtos.size(); i++) {    		
+    		if (produtos.get(i).getTipoProduto().equals(tipoProduto)) {
+    			produtosPorTipo.add(produtos.get(i));    			
+    		}
+    	}
+    	return produtosPorTipo;
     }
 }

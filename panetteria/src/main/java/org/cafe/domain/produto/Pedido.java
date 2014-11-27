@@ -8,6 +8,7 @@ public class Pedido {
 
     public void addItem(Produto produto) {
         itens.add(produto);
+        
     }
 
     public List<Produto> itens() {

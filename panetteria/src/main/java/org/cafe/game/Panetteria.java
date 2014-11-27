@@ -17,7 +17,7 @@ import org.javaeando.game.JavaImage;
 
 public class Panetteria implements Game {
 
-    private static int CRIAR_CLIENTE_TEMPO = 6000; // 5 segs
+    private static int CRIAR_CLIENTE_TEMPO = 1500; // 5 segs
 
     private List<InGameCliente> clientes = new ArrayList<>();
     private List<InGameCliente> clientesASeremRemovidos = new ArrayList<>();

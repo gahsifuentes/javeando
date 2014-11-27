@@ -18,7 +18,7 @@ public class ClienteFactory {
     public static Cliente criarClienteAleatorio() {
         Cliente c = null;
 
-        int value = r.nextInt(3);
+        int value = r.nextInt(3);       
         if (value == 0) {
             c = new Programador();
         } else if (value == 1) {
@@ -29,12 +29,12 @@ public class ClienteFactory {
         String nome = GeradorDeNomes.gerarNome();
         c.setNome(nome);
 
-        c.setNumeroDaConta(numeroConta++);
+        c.setNumeroDaConta(++numeroConta);
 
-        Conta conta = new Conta(numeroConta, Math.min(10, r.nextInt(20)), Math.min(10, r.nextInt(20)));
+        Conta conta = new Conta(numeroConta, Math.max(10, r.nextInt(20)), Math.max(10, r.nextInt(20)));
         Banco.instance().adicionaConta(conta);
 
-        c.setDinheiro(Math.min(10, r.nextInt(20)));
+        c.setDinheiro(Math.max(10, r.nextInt(20)));
 
         return c;
     }
